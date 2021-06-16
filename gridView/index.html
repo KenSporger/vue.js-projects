@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>可复用表格组件</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- 表格组件模板 -->
+  <script type="text/x-template" id="grid-template">
+    <table>
+      <thead>
+        <tr>
+          <!-- 表头 -->
+          <th 
+            v-for="key in headers"
+            @click="setSortKey(key)"
+            :class="{active: sortKey == key}">
+            {{capitalize(key)}}
+            <span class="arrow"
+              @click="changeOrder(key)"
+              :class="ascOrders[key]?'asc':'dsc'">
+            </span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="row in sortAndFilterRecords">
+          <td v-for="key in headers">
+            {{row[key]}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </script>
+  <!-- 根组件 -->
+  <div id="demo">
+    <form id="search">
+      Search <input v-model="search"/>
+    </form>
+    <!-- 表格子组件 -->
+    <demo-grid
+      :filter-key="search" 
+      :headers="gridHeaders"
+      :records="gridRecords">
+    </demo-grid>
+  </div>
+  <script src='https://unpkg.com/vue@next'></script><script  src="./script.js"></script>
+</body>
+</html>
