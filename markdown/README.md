@@ -1,6 +1,6 @@
 # 简易Markdown编辑器
 
-![example](E:\vue-projects\markdown\example.png)
+![example](example.png)
 
 ## 属性绑定和事件处理
 

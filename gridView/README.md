@@ -1,6 +1,6 @@
 # 可复用的表格组件
 
-![example](E:\vue-projects\gridView\example.png)
+![example](example.png)
 
 ## 注册组件
 
